@@ -1,0 +1,21 @@
+$schema: 1.0
+name: download-from-Uri
+author: Build Team
+command: '.\main.ps1 -fileUri {{fileUri}} -sasToken {{sasToken}} -destination {{destination}}'
+parameters:
+  fileUri:
+    type: 'string'
+    required: true
+    description: | 
+      MSI file path absolute path
+  sasToken:
+    type: 'string'
+    required: false
+    default: ''
+    description: | 
+      Key Vault URL to SasToken
+  destination:
+    type: 'string'
+    required: true
+    description: | 
+      Destination path
