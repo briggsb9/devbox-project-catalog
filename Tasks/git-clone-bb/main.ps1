@@ -300,7 +300,7 @@ if (!(Get-Command git -ErrorAction SilentlyContinue)) {
 }
 
 # install git-lfs if it's not already installed
-if (!(Get-Command git-lfs -ErrorAction SilentlyContinue)) {
+<#if (!(Get-Command git-lfs -ErrorAction SilentlyContinue)) {
     # if winget is available, use it to install git-lfs
     if (Get-Command winget -ErrorAction SilentlyContinue) {
         Write-Host "Installing git-lfs with winget"
@@ -365,9 +365,10 @@ if (!(Get-Command git-lfs -ErrorAction SilentlyContinue)) {
         $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") + ";C:\Program Files\Git LFS"
     }
 }
+#>
 
 Write-Host "git version: $(git --version)"
-Write-Host "git-lfs version: $(git-lfs --version)"
+#Write-Host "git-lfs version: $(git-lfs --version)"
 
 $repoCloned = $false
 if ($Pat) {
